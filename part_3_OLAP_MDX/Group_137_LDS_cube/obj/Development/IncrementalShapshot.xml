@@ -1,0 +1,89 @@
+﻿<DeploymentSnapshot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <Target>
+    <Database>Group_137_LDS_cube</Database>
+    <Server>http://lds.di.unipi.it/olap/msmdpump.dll</Server>
+    <ConnectionString>Data Source=http://lds.di.unipi.it/olap/msmdpump.dll;Timeout=0</ConnectionString>
+  </Target>
+  <Options>
+    <TransactionalDeployment>false</TransactionalDeployment>
+    <PartitionDeployment>DeployPartitions</PartitionDeployment>
+    <RoleDeployment>DeployRolesRetainMembers</RoleDeployment>
+    <ProcessingOption>Default</ProcessingOption>
+    <OutputScript></OutputScript>
+    <ImpactAnalysisFile></ImpactAnalysisFile>
+    <ConfigurationSettingsDeployment>Deploy</ConfigurationSettingsDeployment>
+    <OptimizationSettingsDeployment>Deploy</OptimizationSettingsDeployment>
+    <WriteBackTableCreation>UseExisting</WriteBackTableCreation>
+  </Options>
+  <Snapshot>
+    <ObjectSnapshots>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
+        <TimeStamp>vpriEBv9B4TIpEpOP35hEBqXQAY=27. 12. 2023 10:53:4727. 12. 2023 10:53:47</TimeStamp>
+        <ID>
+          <String>Group ID 137 DB</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>eZKzGed3mOcD4XijRkL7bEuI+ZA=27. 12. 2023 11:22:5327. 12. 2023 10:54:57</TimeStamp>
+        <ID>
+          <String>Group ID 137 DB</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>E+tPaTVlTS1BVrItHSifZwi0IF8=3. 1. 2024 11:39:2727. 12. 2023 10:55:59</TimeStamp>
+        <ID>
+          <String>Dates</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>1wEjKMdIs1Ct9Mkby6wKf7/OL3M=27. 12. 2023 15:40:2027. 12. 2023 10:55:59</TimeStamp>
+        <ID>
+          <String>Gun</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>5+YWIrcogcanmVcH+eGf1m5pHnE=27. 12. 2023 15:40:2027. 12. 2023 10:55:59</TimeStamp>
+        <ID>
+          <String>Participant</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>20yVA5z4DH0X8m1v+a/s0O6EDEk=29. 12. 2023 10:58:1127. 12. 2023 10:55:59</TimeStamp>
+        <ID>
+          <String>Geography</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>e3paZx6WbbJk4P3Yhwvravi8hz4=28. 12. 2023 10:15:0928. 12. 2023 10:15:09</TimeStamp>
+        <ID>
+          <String>Incident</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>HrnBbxAyuj07Ld14lra7oE1JLkQ=3. 1. 2024 11:39:2727. 12. 2023 10:55:587YguqEzL+yBcz0kBAMMJgU/POU0=3. 1. 2024 11:39:2727. 12. 2023 10:55:58</TimeStamp>
+        <ID>
+          <String>Group ID 137 DB</String>
+        </ID>
+      </ObjectSnapshot>
+    </ObjectSnapshots>
+    <DatabaseSnapshot>
+      <Type>Microsoft.AnalysisServices.Database</Type>
+      <TimeStamp>xWZYStLY+hNmkoBpNVJ8PfW5T6c=27. 12. 2023 10:40:4927. 12. 2023 10:40:49</TimeStamp>
+      <ID>
+        <String>Group_137_LDS_cube</String>
+      </ID>
+    </DatabaseSnapshot>
+    <Granularity>Coarse</Granularity>
+  </Snapshot>
+  <AssemblyLocations />
+  <ProcessingComplete>true</ProcessingComplete>
+  <LastDeployed>2024-01-03T10:40:06.543333Z</LastDeployed>
+</DeploymentSnapshot>

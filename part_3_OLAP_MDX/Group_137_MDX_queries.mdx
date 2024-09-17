@@ -1,0 +1,37 @@
+---Show the percentage increase or decrease in total crime gravity with respect to the previous year for each state.
+
+with member PrevCrimeGravity as ([Dates].[Year].CurrentMember.lag(1), [Measures].[Crime Gravity])
+
+member PercentageChange as IIF([Measures].[PrevCrimeGravity] = 0,NULL,
+    ([Measures].[Crime Gravity] - PrevCrimeGravity) / PrevCrimeGravity),format_string = "Percent"
+
+select {[Measures].[Crime Gravity], PrevCrimeGravity, PercentageChange} on columns,
+
+NON EMPTY Generate([Geography].[State].[State],{[Geography].[State].CurrentMember} * [Dates].[Year].[Year]  ) on rows
+from [Police_Group_137]
+
+---For each gun, show the total crime gravity in percentage with respect to the total crime gravity of all the guns.
+
+with member Gravity as IIF([Measures].[Crime Gravity] is null, 0, [Measures].[Crime Gravity])
+
+member TotalCrimeGravity as ([Gun].[Gun Type].[All], [Measures].[Crime Gravity])
+
+member Percentage as IIF(TotalCrimeGravity = 0, NULL,
+Gravity / TotalCrimeGravity), format_string = "Percent"
+
+select nonempty([Gun].[Gun Type].[Gun Type]) on rows,
+{Gravity, Percentage} on columns
+
+from [Police_Group_137]
+
+
+---Show the incidents having a total gravity score greater or equal to the average gravity score in each state.
+
+with member avg_per_incident as
+avg([Incident].[Incident Id].[Incident Id],[Measures].[Crime Gravity]), format_string = '#,##0.00'
+ 
+select [Measures].[Crime Gravity]  on columns,
+NON EMPTY filter(([Incident].[Incident Id].[Incident Id],[Geography].[State].[State]), [Measures].[Crime Gravity] >= avg_per_incident)  on rows
+from [Police_Group_137]
+
+

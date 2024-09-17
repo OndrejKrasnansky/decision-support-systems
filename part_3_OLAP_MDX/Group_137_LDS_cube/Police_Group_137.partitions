@@ -1,0 +1,105 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="525ca709-50b7-4387-bf56-543f1acc620c" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Police_Group_137</ID>
+  <MeasureGroups>
+    <MeasureGroup>
+      <ID>Dates</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="9111508a-689b-4bbe-8595-bddb2def03ae">
+          <ID>Dates</ID>
+          <Name>Dates</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="a687ef06-4ff5-4ac3-9455-2723460c2e2f">
+            <DataSourceViewID>Group ID 137 DB</DataSourceViewID>
+            <TableID>Group_ID_137_dates</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Custody</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="20b4d5aa-786d-4e6a-9af2-cefbcdca7ac8">
+          <ID>Custody</ID>
+          <Name>Custody</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="69d9fcab-566f-442e-88b9-7aff75ea3c6e">
+            <DataSourceViewID>Group ID 137 DB</DataSourceViewID>
+            <TableID>Group_ID_137_custody</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Gun</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="41edb6ff-2e0d-4cb0-ad22-d6bfed2ecd9a">
+          <ID>Gun</ID>
+          <Name>Gun</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="84853619-2f21-48a6-aec3-bc8c9b661962">
+            <DataSourceViewID>Group ID 137 DB</DataSourceViewID>
+            <TableID>Group_ID_137_gun</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Geography</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="827a7118-75b5-48a5-80ef-a24cee11a55d">
+          <ID>Geography</ID>
+          <Name>Geography</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="b6905cc5-556b-4e76-be51-e9e7c0aded2a">
+            <DataSourceViewID>Group ID 137 DB</DataSourceViewID>
+            <TableID>Group_ID_137_geography</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Participant</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="88d2cf46-9f33-422c-a622-0e2187ba747e">
+          <ID>Participant</ID>
+          <Name>Participant</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="8e927d40-116b-4744-86c1-174ff218a63d">
+            <DataSourceViewID>Group ID 137 DB</DataSourceViewID>
+            <TableID>Group_ID_137_participant</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+  </MeasureGroups>
+</Cube>
