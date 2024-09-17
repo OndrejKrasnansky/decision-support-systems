@@ -1,0 +1,1967 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/22/2023 1:23:14 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ONDREJ"
+  DTS:CreatorName="ONDREJ\ondre"
+  DTS:DTSID="{9758A03C-D975-4807-9A98-AA696892AB25}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5314.0"
+  DTS:LocaleID="1051"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="82"
+  DTS:VersionGUID="{97C8A092-8DB5-4AC6-AED2-3D39E8A46EA4}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{1F2252E0-A7DB-4073-B6A6-D52DCBFBA257}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\ondre\Documents\UNIPI updated\UNIPI\Second Year\Laboratory for DS\LDS_Project_2023\part_2_SSIS\LDS_project_part_2\ratio_gun.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="incident_id"
+              DTS:DTSID="{5678E3DB-C623-4A5D-9194-2A7C3B880D8A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="20"
+              DTS:TextQualified="True"
+              DTS:ObjectName="crime_gravity"
+              DTS:DTSID="{E9B7B60C-F048-4509-AB40-C6E5749B2FB0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="gun_stolen"
+              DTS:DTSID="{576A7C86-7659-497A-BE17-36B1EBD516B4}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[join]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{7D6C9363-0568-410A-9ED3-A5551E94E232}"
+      DTS:ObjectName="join">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\ondre\Documents\UNIPI updated\UNIPI\Second Year\Laboratory for DS\LDS_Project_2023\part_2_SSIS\SSIS_assignment_2.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="incident_id"
+              DTS:DTSID="{E012F09F-FB39-4995-A822-A9235D0BE040}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="4"
+              DTS:TextQualified="True"
+              DTS:ObjectName="crime_gravity_stolen"
+              DTS:DTSID="{F7E0C14D-AE88-436E-AD2A-238297F1EB0A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="4"
+              DTS:TextQualified="True"
+              DTS:ObjectName="crime_gravity_not_stolen"
+              DTS:DTSID="{41B9195D-E4A7-4815-9E8A-2CE6DDE26AE9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="4"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ratio (stolen /not_stolen)"
+              DTS:DTSID="{14CC1995-AE02-424D-B8D7-FEB08F1961B6}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[lds.di.unipi.it.Group_ID_137_DB.Group_id_137]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{818C8DBE-EF8B-49B5-8480-95DD39A3DD61}"
+      DTS:ObjectName="lds.di.unipi.it.Group_ID_137_DB.Group_id_137">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=lds.di.unipi.it;User ID=Group_id_137;Initial Catalog=Group_ID_137_DB;Provider=SQLOLEDB.1;Persist Security Info=True;Application Name=SSIS-Package1-{818C8DBE-EF8B-49B5-8480-95DD39A3DD61}lds.di.unipi.it.Group_ID_137_DB.Group_id_137;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAOq5+ILDFU0uo0wRhNBq8IQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABThWjhquRnJrSp65K0qzuRpsWl5ecI9dMHUmoKn1ZM2gAAAAAOgAAAAAIAACAAAADN20zy0mDZyiKsoiiA+bmn1Crub8CHdr5Ylim/Qw7SKCAAAADG5UsSIw+yjDxw9Dz4l7WLP+u5bNtEb4kS141vl3U2F0AAAADG0y5IU9KlqcZLgLbPIdQp5pq9CQUMPh8ekuek1OTgTIzinvGWQ4TBUKHiATbTolCbiWxLOZTi+wO86HnpPZAb</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[split_by_stolen]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{2C099756-0CC5-4A40-9DEF-B03EABA5A56A}"
+      DTS:ObjectName="split_by_stolen">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\ondre\Documents\UNIPI updated\UNIPI\Second Year\Laboratory for DS\LDS_Project_2023\part_2_SSIS\stolen_rest.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="incident_id"
+              DTS:DTSID="{E8A981BD-021A-4C8E-B609-37E97957E099}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="20"
+              DTS:TextQualified="True"
+              DTS:ObjectName="crime_gravity"
+              DTS:DTSID="{446FE226-5E44-446C-B45C-DE60AA6FE1EC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="gun_stolen"
+              DTS:DTSID="{6EBB6FE6-9921-4EFC-8462-23DDD7AC43C5}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[stolen]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{F28801F2-659C-42C6-9E93-9E4FA7188A8E}"
+      DTS:ObjectName="stolen">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\ondre\Documents\UNIPI updated\UNIPI\Second Year\Laboratory for DS\LDS_Project_2023\part_2_SSIS\just_stolen.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="incident_id"
+              DTS:DTSID="{859D314E-5370-43AB-8B13-2DD48861C4A3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="20"
+              DTS:TextQualified="True"
+              DTS:ObjectName="crime_gravity"
+              DTS:DTSID="{8C3DA46A-D654-4B0B-80B2-E1DFBB6B2BAC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="gun_stolen"
+              DTS:DTSID="{3B8D5B4E-294D-439D-9CBE-BA194B83A19F}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[stolen_not-stolen]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{3E015038-A1BD-43EE-8151-1F30B15E328D}"
+      DTS:ObjectName="stolen_not-stolen">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\ondre\Documents\UNIPI updated\UNIPI\Second Year\Laboratory for DS\LDS_Project_2023\part_2_SSIS\just_not_stolen.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="incident_id"
+              DTS:DTSID="{41D28260-8582-4815-BC76-58778C14883E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="20"
+              DTS:TextQualified="True"
+              DTS:ObjectName="crime_gravity"
+              DTS:DTSID="{FD9DFBA5-E6CF-437E-B55F-7542590E3E5B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="gun_stolen"
+              DTS:DTSID="{59BC5FF4-FD4A-4C0E-ADE8-74F58994FECC}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Gun ratio"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{20CFC25A-28C0-4E41-A9B1-D0F50DC64210}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Gun ratio"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Gun ratio\calculate the ratio"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="calculate the ratio"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Gun ratio\calculate the ratio.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Gun ratio\calculate the ratio.Inputs[Derived Column Input].Columns[crime_gravity_stolen]"
+                      cachedDataType="r4"
+                      cachedName="crime_gravity_stolen"
+                      lineageId="Package\Gun ratio\change crime_gravity to FLOAT.Outputs[Data Conversion Output].Columns[crime_gravity_stolen]" />
+                    <inputColumn
+                      refId="Package\Gun ratio\calculate the ratio.Inputs[Derived Column Input].Columns[crime_gravity_not_stolen]"
+                      cachedDataType="r4"
+                      cachedName="crime_gravity_not_stolen"
+                      lineageId="Package\Gun ratio\change crime_gravity to FLOAT.Outputs[Data Conversion Output].Columns[crime_gravity_not_stolen]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Gun ratio\calculate the ratio.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Gun ratio\calculate the ratio.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Gun ratio\calculate the ratio.Outputs[Derived Column Output].Columns[ratio (stolen /not_stolen)]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Gun ratio\calculate the ratio.Outputs[Derived Column Output].Columns[ratio (stolen /not_stolen)]"
+                      name="ratio (stolen /not_stolen)"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_R4)(#{Package\Gun ratio\change crime_gravity to FLOAT.Outputs[Data Conversion Output].Columns[crime_gravity_stolen]} / #{Package\Gun ratio\change crime_gravity to FLOAT.Outputs[Data Conversion Output].Columns[crime_gravity_not_stolen]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_R4)(crime_gravity_stolen / crime_gravity_not_stolen)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Gun ratio\calculate the ratio.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Gun ratio\calculate the ratio.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Gun ratio\calculate the ratio.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Gun ratio\calculate the ratio.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Gun ratio\calculate the ratio.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Gun ratio\calculate the ratio.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Gun ratio\change crime_gravity to FLOAT"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="change crime_gravity to FLOAT"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Gun ratio\change crime_gravity to FLOAT.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Gun ratio\change crime_gravity to FLOAT.Inputs[Data Conversion Input].Columns[crime_gravity]"
+                      cachedDataType="i8"
+                      cachedName="crime_gravity"
+                      lineageId="Package\Gun ratio\Merge on incident_id.Outputs[Merge Join Output].Columns[crime_gravity]" />
+                    <inputColumn
+                      refId="Package\Gun ratio\change crime_gravity to FLOAT.Inputs[Data Conversion Input].Columns[crime_gravity (1)]"
+                      cachedDataType="i8"
+                      cachedName="crime_gravity (1)"
+                      lineageId="Package\Gun ratio\Merge on incident_id.Outputs[Merge Join Output].Columns[crime_gravity (1)]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Gun ratio\change crime_gravity to FLOAT.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Gun ratio\change crime_gravity to FLOAT.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Gun ratio\change crime_gravity to FLOAT.Outputs[Data Conversion Output].Columns[crime_gravity_stolen]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Gun ratio\change crime_gravity to FLOAT.Outputs[Data Conversion Output].Columns[crime_gravity_stolen]"
+                      name="crime_gravity_stolen"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Gun ratio\Merge on incident_id.Outputs[Merge Join Output].Columns[crime_gravity]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Gun ratio\change crime_gravity to FLOAT.Outputs[Data Conversion Output].Columns[crime_gravity_not_stolen]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Gun ratio\change crime_gravity to FLOAT.Outputs[Data Conversion Output].Columns[crime_gravity_not_stolen]"
+                      name="crime_gravity_not_stolen"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Gun ratio\Merge on incident_id.Outputs[Merge Join Output].Columns[crime_gravity (1)]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Gun ratio\change crime_gravity to FLOAT.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Gun ratio\change crime_gravity to FLOAT.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Gun ratio\change crime_gravity to FLOAT.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Gun ratio\change crime_gravity to FLOAT.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Gun ratio\change crime_gravity to FLOAT.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Gun ratio\change crime_gravity to FLOAT.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Gun ratio\Group_by incident_id"
+              componentClassID="Microsoft.Aggregate"
+              contactInfo="Aggregate;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Aggregates data with functions such as Average, Sum, Count, Max, and Min. For example, group data to compute the sum of sales per product or the average visits per day."
+              name="Group_by incident_id"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                  name="KeyScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                  name="Keys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of distinct values in a column that the aggregation counts distinctly. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no CountDistinctScale value is used."
+                  name="CountDistinctScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of distinct values in a column that the aggregation counts distinctly. If a CountDistinctScale value is specified, the value in CountDistinctKeys takes precedence."
+                  name="CountDistinctKeys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage by which memory can be extended during the aggregation. Valid values are between 1 and 100."
+                  name="AutoExtendFactor">25</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Gun ratio\Group_by incident_id.Inputs[Aggregate Input 1]"
+                  name="Aggregate Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Gun ratio\Group_by incident_id.Inputs[Aggregate Input 1].Columns[incident_id]"
+                      cachedDataType="i4"
+                      cachedName="incident_id"
+                      lineageId="Package\Gun ratio\Upload custody (incident_id, gun_id, crime_gravity).Outputs[OLE DB Source Output].Columns[incident_id]" />
+                    <inputColumn
+                      refId="Package\Gun ratio\Group_by incident_id.Inputs[Aggregate Input 1].Columns[crime_gravity]"
+                      cachedDataType="i4"
+                      cachedName="crime_gravity"
+                      lineageId="Package\Gun ratio\Upload custody (incident_id, gun_id, crime_gravity).Outputs[OLE DB Source Output].Columns[crime_gravity]" />
+                    <inputColumn
+                      refId="Package\Gun ratio\Group_by incident_id.Inputs[Aggregate Input 1].Columns[gun_stolen]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="gun_stolen"
+                      lineageId="Package\Gun ratio\Lookup to gun_id.Outputs[Lookup Match Output].Columns[gun_stolen]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Gun ratio\Group_by incident_id.Outputs[Aggregate Output 1]"
+                  name="Aggregate Output 1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                      name="KeyScale"
+                      typeConverter="KeyScaleType">0</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                      name="Keys" />
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Gun ratio\Group_by incident_id.Outputs[Aggregate Output 1].Columns[incident_id]"
+                      dataType="i4"
+                      lineageId="Package\Gun ratio\Group_by incident_id.Outputs[Aggregate Output 1].Columns[incident_id]"
+                      name="incident_id">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Gun ratio\Upload custody (incident_id, gun_id, crime_gravity).Outputs[OLE DB Source Output].Columns[incident_id]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Gun ratio\Group_by incident_id.Outputs[Aggregate Output 1].Columns[crime_gravity]"
+                      dataType="i8"
+                      lineageId="Package\Gun ratio\Group_by incident_id.Outputs[Aggregate Output 1].Columns[crime_gravity]"
+                      name="crime_gravity">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Gun ratio\Upload custody (incident_id, gun_id, crime_gravity).Outputs[OLE DB Source Output].Columns[crime_gravity]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">4</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Gun ratio\Group_by incident_id.Outputs[Aggregate Output 1].Columns[gun_stolen]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Gun ratio\Group_by incident_id.Outputs[Aggregate Output 1].Columns[gun_stolen]"
+                      name="gun_stolen">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Gun ratio\Lookup to gun_id.Outputs[Lookup Match Output].Columns[gun_stolen]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Gun ratio\Lookup to gun_id"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup to gun_id"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [Group_ID_137].[gun]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [Group_ID_137].[gun]) [refTable]
+where [refTable].[gun_id] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="gun_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="gun_stolen" dataType="DT_STR" length="20" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="gun_type" dataType="DT_STR" length="20" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Gun ratio\Upload custody (incident_id, gun_id, crime_gravity).Outputs[OLE DB Source Output].Columns[gun_id]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Gun ratio\Lookup to gun_id.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[lds.di.unipi.it.Group_ID_137_DB.Group_id_137]"
+                  connectionManagerRefId="Package.ConnectionManagers[lds.di.unipi.it.Group_ID_137_DB.Group_id_137]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Gun ratio\Lookup to gun_id.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Gun ratio\Lookup to gun_id.Inputs[Lookup Input].Columns[gun_id]"
+                      cachedDataType="i4"
+                      cachedName="gun_id"
+                      lineageId="Package\Gun ratio\Upload custody (incident_id, gun_id, crime_gravity).Outputs[OLE DB Source Output].Columns[gun_id]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">gun_id</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Gun ratio\Lookup to gun_id.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Gun ratio\Lookup to gun_id.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Gun ratio\Lookup to gun_id.Outputs[Lookup Match Output].Columns[gun_stolen]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="20"
+                      lineageId="Package\Gun ratio\Lookup to gun_id.Outputs[Lookup Match Output].Columns[gun_stolen]"
+                      name="gun_stolen"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">gun_stolen</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Gun ratio\Lookup to gun_id.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Gun ratio\Lookup to gun_id.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Gun ratio\Lookup to gun_id.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Gun ratio\Lookup to gun_id.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Gun ratio\Lookup to gun_id.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Gun ratio\Lookup to gun_id.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Gun ratio\Lookup to gun_id.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Gun ratio\Lookup to gun_id.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Gun ratio\Merge on incident_id"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+              name="Merge on incident_id"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of join to perform."
+                  name="JoinType"
+                  typeConverter="JoinType">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of columns in the ordering key."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the null values are treated as equal values."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates the requested maximum buffers per input before blocking."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Gun ratio\Merge on incident_id.Inputs[Merge Join Left Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Left Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Gun ratio\Merge on incident_id.Inputs[Merge Join Left Input].Columns[incident_id]"
+                      cachedDataType="i4"
+                      cachedName="incident_id"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Gun ratio\sort stolen by incident_id.Outputs[Sort Output].Columns[incident_id]" />
+                    <inputColumn
+                      refId="Package\Gun ratio\Merge on incident_id.Inputs[Merge Join Left Input].Columns[crime_gravity]"
+                      cachedDataType="i8"
+                      cachedName="crime_gravity"
+                      lineageId="Package\Gun ratio\sort stolen by incident_id.Outputs[Sort Output].Columns[crime_gravity]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Gun ratio\Merge on incident_id.Inputs[Merge Join Right Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Right Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Gun ratio\Merge on incident_id.Inputs[Merge Join Right Input].Columns[incident_id]"
+                      cachedDataType="i4"
+                      cachedName="incident_id"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Gun ratio\sort not_stolen by incident_id.Outputs[Sort Output].Columns[incident_id]" />
+                    <inputColumn
+                      refId="Package\Gun ratio\Merge on incident_id.Inputs[Merge Join Right Input].Columns[crime_gravity]"
+                      cachedDataType="i8"
+                      cachedName="crime_gravity"
+                      lineageId="Package\Gun ratio\sort not_stolen by incident_id.Outputs[Sort Output].Columns[crime_gravity]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Gun ratio\Merge on incident_id.Outputs[Merge Join Output]"
+                  isSorted="true"
+                  name="Merge Join Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Gun ratio\Merge on incident_id.Outputs[Merge Join Output].Columns[incident_id]"
+                      dataType="i4"
+                      lineageId="Package\Gun ratio\Merge on incident_id.Outputs[Merge Join Output].Columns[incident_id]"
+                      name="incident_id"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Gun ratio\Merge on incident_id.Inputs[Merge Join Left Input].Columns[incident_id]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Gun ratio\Merge on incident_id.Outputs[Merge Join Output].Columns[crime_gravity]"
+                      dataType="i8"
+                      lineageId="Package\Gun ratio\Merge on incident_id.Outputs[Merge Join Output].Columns[crime_gravity]"
+                      name="crime_gravity">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Gun ratio\Merge on incident_id.Inputs[Merge Join Left Input].Columns[crime_gravity]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Gun ratio\Merge on incident_id.Outputs[Merge Join Output].Columns[crime_gravity (1)]"
+                      dataType="i8"
+                      lineageId="Package\Gun ratio\Merge on incident_id.Outputs[Merge Join Output].Columns[crime_gravity (1)]"
+                      name="crime_gravity (1)">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Gun ratio\Merge on incident_id.Inputs[Merge Join Right Input].Columns[crime_gravity]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Gun ratio\sort not_stolen by incident_id"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="sort not_stolen by incident_id"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Gun ratio\sort not_stolen by incident_id.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Gun ratio\sort not_stolen by incident_id.Inputs[Sort Input].Columns[incident_id]"
+                      cachedDataType="i4"
+                      cachedName="incident_id"
+                      lineageId="Package\Gun ratio\Group_by incident_id.Outputs[Aggregate Output 1].Columns[incident_id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Gun ratio\sort not_stolen by incident_id.Inputs[Sort Input].Columns[crime_gravity]"
+                      cachedDataType="i8"
+                      cachedName="crime_gravity"
+                      lineageId="Package\Gun ratio\Group_by incident_id.Outputs[Aggregate Output 1].Columns[crime_gravity]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Gun ratio\sort not_stolen by incident_id.Inputs[Sort Input].Columns[gun_stolen]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="gun_stolen"
+                      lineageId="Package\Gun ratio\Group_by incident_id.Outputs[Aggregate Output 1].Columns[gun_stolen]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Gun ratio\sort not_stolen by incident_id.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Gun ratio\sort not_stolen by incident_id.Outputs[Sort Output].Columns[incident_id]"
+                      dataType="i4"
+                      lineageId="Package\Gun ratio\sort not_stolen by incident_id.Outputs[Sort Output].Columns[incident_id]"
+                      name="incident_id"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Gun ratio\Group_by incident_id.Outputs[Aggregate Output 1].Columns[incident_id]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Gun ratio\sort not_stolen by incident_id.Outputs[Sort Output].Columns[crime_gravity]"
+                      dataType="i8"
+                      lineageId="Package\Gun ratio\sort not_stolen by incident_id.Outputs[Sort Output].Columns[crime_gravity]"
+                      name="crime_gravity">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Gun ratio\Group_by incident_id.Outputs[Aggregate Output 1].Columns[crime_gravity]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Gun ratio\sort not_stolen by incident_id.Outputs[Sort Output].Columns[gun_stolen]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Gun ratio\sort not_stolen by incident_id.Outputs[Sort Output].Columns[gun_stolen]"
+                      name="gun_stolen">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Gun ratio\Group_by incident_id.Outputs[Aggregate Output 1].Columns[gun_stolen]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Gun ratio\sort stolen by incident_id"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="sort stolen by incident_id"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Gun ratio\sort stolen by incident_id.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Gun ratio\sort stolen by incident_id.Inputs[Sort Input].Columns[incident_id]"
+                      cachedDataType="i4"
+                      cachedName="incident_id"
+                      lineageId="Package\Gun ratio\Group_by incident_id.Outputs[Aggregate Output 1].Columns[incident_id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Gun ratio\sort stolen by incident_id.Inputs[Sort Input].Columns[crime_gravity]"
+                      cachedDataType="i8"
+                      cachedName="crime_gravity"
+                      lineageId="Package\Gun ratio\Group_by incident_id.Outputs[Aggregate Output 1].Columns[crime_gravity]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Gun ratio\sort stolen by incident_id.Inputs[Sort Input].Columns[gun_stolen]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="gun_stolen"
+                      lineageId="Package\Gun ratio\Group_by incident_id.Outputs[Aggregate Output 1].Columns[gun_stolen]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Gun ratio\sort stolen by incident_id.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Gun ratio\sort stolen by incident_id.Outputs[Sort Output].Columns[incident_id]"
+                      dataType="i4"
+                      lineageId="Package\Gun ratio\sort stolen by incident_id.Outputs[Sort Output].Columns[incident_id]"
+                      name="incident_id"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Gun ratio\Group_by incident_id.Outputs[Aggregate Output 1].Columns[incident_id]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Gun ratio\sort stolen by incident_id.Outputs[Sort Output].Columns[crime_gravity]"
+                      dataType="i8"
+                      lineageId="Package\Gun ratio\sort stolen by incident_id.Outputs[Sort Output].Columns[crime_gravity]"
+                      name="crime_gravity">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Gun ratio\Group_by incident_id.Outputs[Aggregate Output 1].Columns[crime_gravity]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Gun ratio\sort stolen by incident_id.Outputs[Sort Output].Columns[gun_stolen]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Gun ratio\sort stolen by incident_id.Outputs[Sort Output].Columns[gun_stolen]"
+                      name="gun_stolen">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Gun ratio\Group_by incident_id.Outputs[Aggregate Output 1].Columns[gun_stolen]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Gun ratio\Split stolen not stolen and the rest"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Split stolen not stolen and the rest"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Gun ratio\Split stolen not stolen and the rest.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Gun ratio\Split stolen not stolen and the rest.Inputs[Conditional Split Input].Columns[gun_stolen]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="gun_stolen"
+                      lineageId="Package\Gun ratio\Group_by incident_id.Outputs[Aggregate Output 1].Columns[gun_stolen]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Gun ratio\Split stolen not stolen and the rest.Outputs[Stolen]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Stolen"
+                  synchronousInputId="Package\Gun ratio\Split stolen not stolen and the rest.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\Gun ratio\Group_by incident_id.Outputs[Aggregate Output 1].Columns[gun_stolen]} == "Stolen"</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">gun_stolen == "Stolen"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Gun ratio\Split stolen not stolen and the rest.Outputs[Not_stolen]"
+                  description="Output 2 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Not_stolen"
+                  synchronousInputId="Package\Gun ratio\Split stolen not stolen and the rest.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\Gun ratio\Group_by incident_id.Outputs[Aggregate Output 1].Columns[gun_stolen]} == "Not-stolen"</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">gun_stolen == "Not-stolen"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Gun ratio\Split stolen not stolen and the rest.Outputs[Unknown and irrelevant]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Unknown and irrelevant"
+                  synchronousInputId="Package\Gun ratio\Split stolen not stolen and the rest.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Gun ratio\Split stolen not stolen and the rest.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\Gun ratio\Split stolen not stolen and the rest.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Gun ratio\Split stolen not stolen and the rest.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Gun ratio\Split stolen not stolen and the rest.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Gun ratio\Split stolen not stolen and the rest.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Gun ratio\Split stolen not stolen and the rest.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Gun ratio\Upload custody (incident_id, gun_id, crime_gravity)"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Upload custody (incident_id, gun_id, crime_gravity)"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Group_ID_137].[custody]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Gun ratio\Upload custody (incident_id, gun_id, crime_gravity).Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[lds.di.unipi.it.Group_ID_137_DB.Group_id_137]"
+                  connectionManagerRefId="Package.ConnectionManagers[lds.di.unipi.it.Group_ID_137_DB.Group_id_137]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Gun ratio\Upload custody (incident_id, gun_id, crime_gravity).Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Gun ratio\Upload custody (incident_id, gun_id, crime_gravity).Outputs[OLE DB Source Output].Columns[incident_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gun ratio\Upload custody (incident_id, gun_id, crime_gravity).Outputs[OLE DB Source Output].ExternalColumns[incident_id]"
+                      lineageId="Package\Gun ratio\Upload custody (incident_id, gun_id, crime_gravity).Outputs[OLE DB Source Output].Columns[incident_id]"
+                      name="incident_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gun ratio\Upload custody (incident_id, gun_id, crime_gravity).Outputs[OLE DB Source Output].Columns[crime_gravity]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gun ratio\Upload custody (incident_id, gun_id, crime_gravity).Outputs[OLE DB Source Output].ExternalColumns[crime_gravity]"
+                      lineageId="Package\Gun ratio\Upload custody (incident_id, gun_id, crime_gravity).Outputs[OLE DB Source Output].Columns[crime_gravity]"
+                      name="crime_gravity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gun ratio\Upload custody (incident_id, gun_id, crime_gravity).Outputs[OLE DB Source Output].Columns[gun_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gun ratio\Upload custody (incident_id, gun_id, crime_gravity).Outputs[OLE DB Source Output].ExternalColumns[gun_id]"
+                      lineageId="Package\Gun ratio\Upload custody (incident_id, gun_id, crime_gravity).Outputs[OLE DB Source Output].Columns[gun_id]"
+                      name="gun_id"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Gun ratio\Upload custody (incident_id, gun_id, crime_gravity).Outputs[OLE DB Source Output].ExternalColumns[custody_id]"
+                      dataType="i4"
+                      name="custody_id" />
+                    <externalMetadataColumn
+                      refId="Package\Gun ratio\Upload custody (incident_id, gun_id, crime_gravity).Outputs[OLE DB Source Output].ExternalColumns[participant_id]"
+                      dataType="i4"
+                      name="participant_id" />
+                    <externalMetadataColumn
+                      refId="Package\Gun ratio\Upload custody (incident_id, gun_id, crime_gravity).Outputs[OLE DB Source Output].ExternalColumns[gun_id]"
+                      dataType="i4"
+                      name="gun_id" />
+                    <externalMetadataColumn
+                      refId="Package\Gun ratio\Upload custody (incident_id, gun_id, crime_gravity).Outputs[OLE DB Source Output].ExternalColumns[incident_id]"
+                      dataType="i4"
+                      name="incident_id" />
+                    <externalMetadataColumn
+                      refId="Package\Gun ratio\Upload custody (incident_id, gun_id, crime_gravity).Outputs[OLE DB Source Output].ExternalColumns[geo_id]"
+                      dataType="i4"
+                      name="geo_id" />
+                    <externalMetadataColumn
+                      refId="Package\Gun ratio\Upload custody (incident_id, gun_id, crime_gravity).Outputs[OLE DB Source Output].ExternalColumns[date_id]"
+                      dataType="i4"
+                      name="date_id" />
+                    <externalMetadataColumn
+                      refId="Package\Gun ratio\Upload custody (incident_id, gun_id, crime_gravity).Outputs[OLE DB Source Output].ExternalColumns[crime_gravity]"
+                      dataType="i4"
+                      name="crime_gravity" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Gun ratio\Upload custody (incident_id, gun_id, crime_gravity).Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Gun ratio\Upload custody (incident_id, gun_id, crime_gravity).Outputs[OLE DB Source Error Output].Columns[incident_id]"
+                      dataType="i4"
+                      lineageId="Package\Gun ratio\Upload custody (incident_id, gun_id, crime_gravity).Outputs[OLE DB Source Error Output].Columns[incident_id]"
+                      name="incident_id" />
+                    <outputColumn
+                      refId="Package\Gun ratio\Upload custody (incident_id, gun_id, crime_gravity).Outputs[OLE DB Source Error Output].Columns[crime_gravity]"
+                      dataType="i4"
+                      lineageId="Package\Gun ratio\Upload custody (incident_id, gun_id, crime_gravity).Outputs[OLE DB Source Error Output].Columns[crime_gravity]"
+                      name="crime_gravity" />
+                    <outputColumn
+                      refId="Package\Gun ratio\Upload custody (incident_id, gun_id, crime_gravity).Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Gun ratio\Upload custody (incident_id, gun_id, crime_gravity).Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Gun ratio\Upload custody (incident_id, gun_id, crime_gravity).Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Gun ratio\Upload custody (incident_id, gun_id, crime_gravity).Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Gun ratio\Upload custody (incident_id, gun_id, crime_gravity).Outputs[OLE DB Source Error Output].Columns[gun_id]"
+                      dataType="i4"
+                      lineageId="Package\Gun ratio\Upload custody (incident_id, gun_id, crime_gravity).Outputs[OLE DB Source Error Output].Columns[gun_id]"
+                      name="gun_id" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Gun ratio\Write an output to csv"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Destination"
+              localeId="1033"
+              name="Write an output to csv"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Gun ratio\Write an output to csv.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[join]"
+                  connectionManagerRefId="Package.ConnectionManagers[join]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Gun ratio\Write an output to csv.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Gun ratio\Write an output to csv.Inputs[Flat File Destination Input].Columns[incident_id]"
+                      cachedDataType="i4"
+                      cachedName="incident_id"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Gun ratio\Write an output to csv.Inputs[Flat File Destination Input].ExternalColumns[incident_id]"
+                      lineageId="Package\Gun ratio\Merge on incident_id.Outputs[Merge Join Output].Columns[incident_id]" />
+                    <inputColumn
+                      refId="Package\Gun ratio\Write an output to csv.Inputs[Flat File Destination Input].Columns[crime_gravity_stolen]"
+                      cachedDataType="r4"
+                      cachedName="crime_gravity_stolen"
+                      externalMetadataColumnId="Package\Gun ratio\Write an output to csv.Inputs[Flat File Destination Input].ExternalColumns[crime_gravity_stolen]"
+                      lineageId="Package\Gun ratio\change crime_gravity to FLOAT.Outputs[Data Conversion Output].Columns[crime_gravity_stolen]" />
+                    <inputColumn
+                      refId="Package\Gun ratio\Write an output to csv.Inputs[Flat File Destination Input].Columns[crime_gravity_not_stolen]"
+                      cachedDataType="r4"
+                      cachedName="crime_gravity_not_stolen"
+                      externalMetadataColumnId="Package\Gun ratio\Write an output to csv.Inputs[Flat File Destination Input].ExternalColumns[crime_gravity_not_stolen]"
+                      lineageId="Package\Gun ratio\change crime_gravity to FLOAT.Outputs[Data Conversion Output].Columns[crime_gravity_not_stolen]" />
+                    <inputColumn
+                      refId="Package\Gun ratio\Write an output to csv.Inputs[Flat File Destination Input].Columns[ratio (stolen /not_stolen)]"
+                      cachedDataType="r4"
+                      cachedName="ratio (stolen /not_stolen)"
+                      externalMetadataColumnId="Package\Gun ratio\Write an output to csv.Inputs[Flat File Destination Input].ExternalColumns[ratio (stolen /not_stolen)]"
+                      lineageId="Package\Gun ratio\calculate the ratio.Outputs[Derived Column Output].Columns[ratio (stolen /not_stolen)]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Gun ratio\Write an output to csv.Inputs[Flat File Destination Input].ExternalColumns[incident_id]"
+                      dataType="i4"
+                      name="incident_id" />
+                    <externalMetadataColumn
+                      refId="Package\Gun ratio\Write an output to csv.Inputs[Flat File Destination Input].ExternalColumns[crime_gravity_stolen]"
+                      dataType="r4"
+                      name="crime_gravity_stolen" />
+                    <externalMetadataColumn
+                      refId="Package\Gun ratio\Write an output to csv.Inputs[Flat File Destination Input].ExternalColumns[crime_gravity_not_stolen]"
+                      dataType="r4"
+                      name="crime_gravity_not_stolen" />
+                    <externalMetadataColumn
+                      refId="Package\Gun ratio\Write an output to csv.Inputs[Flat File Destination Input].ExternalColumns[ratio (stolen /not_stolen)]"
+                      dataType="r4"
+                      name="ratio (stolen /not_stolen)" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Gun ratio.Paths[Aggregate Output 1]"
+              endId="Package\Gun ratio\Split stolen not stolen and the rest.Inputs[Conditional Split Input]"
+              name="Aggregate Output 1"
+              startId="Package\Gun ratio\Group_by incident_id.Outputs[Aggregate Output 1]" />
+            <path
+              refId="Package\Gun ratio.Paths[Data Conversion Output]"
+              endId="Package\Gun ratio\calculate the ratio.Inputs[Derived Column Input]"
+              name="Data Conversion Output"
+              startId="Package\Gun ratio\change crime_gravity to FLOAT.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Gun ratio.Paths[Derived Column Output]"
+              endId="Package\Gun ratio\Write an output to csv.Inputs[Flat File Destination Input]"
+              name="Derived Column Output"
+              startId="Package\Gun ratio\calculate the ratio.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Gun ratio.Paths[Lookup Match Output]"
+              endId="Package\Gun ratio\Group_by incident_id.Inputs[Aggregate Input 1]"
+              name="Lookup Match Output"
+              startId="Package\Gun ratio\Lookup to gun_id.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Gun ratio.Paths[Merge Join Output]"
+              endId="Package\Gun ratio\change crime_gravity to FLOAT.Inputs[Data Conversion Input]"
+              name="Merge Join Output"
+              startId="Package\Gun ratio\Merge on incident_id.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\Gun ratio.Paths[Not_stolen]"
+              endId="Package\Gun ratio\sort not_stolen by incident_id.Inputs[Sort Input]"
+              name="Not_stolen"
+              startId="Package\Gun ratio\Split stolen not stolen and the rest.Outputs[Not_stolen]" />
+            <path
+              refId="Package\Gun ratio.Paths[OLE DB Source Output]"
+              endId="Package\Gun ratio\Lookup to gun_id.Inputs[Lookup Input]"
+              name="OLE DB Source Output"
+              startId="Package\Gun ratio\Upload custody (incident_id, gun_id, crime_gravity).Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Gun ratio.Paths[Sort Output]"
+              endId="Package\Gun ratio\Merge on incident_id.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\Gun ratio\sort stolen by incident_id.Outputs[Sort Output]" />
+            <path
+              refId="Package\Gun ratio.Paths[Sort Output1]"
+              endId="Package\Gun ratio\Merge on incident_id.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\Gun ratio\sort not_stolen by incident_id.Outputs[Sort Output]" />
+            <path
+              refId="Package\Gun ratio.Paths[Stolen]"
+              endId="Package\Gun ratio\sort stolen by incident_id.Inputs[Sort Input]"
+              name="Stolen"
+              startId="Package\Gun ratio\Split stolen not stolen and the rest.Outputs[Stolen]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="122.5,42"
+          Id="Package\Gun ratio"
+          TopLeft="360.5,194.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Gun ratio">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="197,42"
+          Id="Package\Gun ratio\sort stolen by incident_id"
+          TopLeft="206.309523809524,466.309523809524" />
+        <NodeLayout
+          Size="227,42"
+          Id="Package\Gun ratio\change crime_gravity to FLOAT"
+          TopLeft="336.984126984126,637.777777777778" />
+        <NodeLayout
+          Size="178,42"
+          Id="Package\Gun ratio\Merge on incident_id"
+          TopLeft="364.84126984127,559.126984126985" />
+        <NodeLayout
+          Size="179,42"
+          Id="Package\Gun ratio\Group_by incident_id"
+          TopLeft="353.964285714286,292.994047619047" />
+        <NodeLayout
+          Size="184,42"
+          Id="Package\Gun ratio\Write an output to csv"
+          TopLeft="771.666666666667,707.380952380953" />
+        <NodeLayout
+          Size="218,42"
+          Id="Package\Gun ratio\sort not_stolen by incident_id"
+          TopLeft="502.460317460318,471.468253968254" />
+        <NodeLayout
+          Size="241,42"
+          Id="Package\Gun ratio\Split stolen not stolen and the rest"
+          TopLeft="315.617063492064,386.728174603175" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\Gun ratio\Lookup to gun_id"
+          TopLeft="367.166666666667,141.166666666667" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Gun ratio\calculate the ratio"
+          TopLeft="565.119047619047,700.436507936508" />
+        <NodeLayout
+          Size="322,42"
+          Id="Package\Gun ratio\Upload custody (incident_id, gun_id, crime_gravity)"
+          TopLeft="279.5,42.5" />
+        <EdgeLayout
+          Id="Package\Gun ratio.Paths[OLE DB Source Output]"
+          TopLeft="444.083333333333,84.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,56.6666666666667"
+              Start="0,0"
+              End="0,49.1666666666667">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.1666666666667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Gun ratio.Paths[Not_stolen]"
+          TopLeft="474.950396825397,428.728174603175">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="136.50992063492,42.7400793650788"
+              Start="0,0"
+              End="136.50992063492,35.2400793650788">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.2651598424473" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.2651598424473"
+                    Point2="0,17.2651598424473"
+                    Point3="4,17.2651598424473" />
+                  <mssgle:LineSegment
+                    End="132.50992063492,17.2651598424473" />
+                  <mssgle:CubicBezierSegment
+                    Point1="132.50992063492,17.2651598424473"
+                    Point2="136.50992063492,17.2651598424473"
+                    Point3="136.50992063492,21.2651598424473" />
+                  <mssgle:LineSegment
+                    End="136.50992063492,35.2400793650788" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="44.30802672371,22.2651598424473,47.8938671875,11.0625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Gun ratio.Paths[Merge Join Output]"
+          TopLeft="452.162698412698,601.126984126985">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36.6507936507935"
+              Start="0,0"
+              End="0,29.1507936507935">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.1507936507935" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Gun ratio.Paths[Lookup Match Output]"
+          TopLeft="445.565476190476,183.166666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,109.827380952381"
+              Start="0,0"
+              End="0,102.327380952381">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,102.327380952381" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,45.3590029761905,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Gun ratio.Paths[Derived Column Output]"
+          TopLeft="728.119047619047,724.90873015873">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="43.5476190476197,0"
+              Start="0,0"
+              End="36.0476190476197,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="36.0476190476197,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Gun ratio.Paths[Data Conversion Output]"
+          TopLeft="563.984126984126,658.777777777778">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="82.6349206349209,41.6587301587297"
+              Start="0,0"
+              End="82.6349206349209,34.1587301587297">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="78.6349206349209,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="78.6349206349209,0"
+                    Point2="82.6349206349209,0"
+                    Point3="82.6349206349209,4" />
+                  <mssgle:LineSegment
+                    End="82.6349206349209,34.1587301587297" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Gun ratio.Paths[Aggregate Output 1]"
+          TopLeft="439.790674603175,334.994047619047">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51.7341269841281"
+              Start="0,0"
+              End="0,44.2341269841281">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.2341269841281" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Gun ratio.Paths[Stolen]"
+          TopLeft="397.283730158731,428.728174603175">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-92.4742063492066,37.581349206349"
+              Start="0,0"
+              End="-92.4742063492066,30.081349206349">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.1812540075111" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.1812540075111"
+                    Point2="0,15.1812540075111"
+                    Point3="-4,15.1812540075111" />
+                  <mssgle:LineSegment
+                    End="-88.4742063492066,15.1812540075111" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-88.4742063492066,15.1812540075111"
+                    Point2="-92.4742063492066,15.1812540075111"
+                    Point3="-92.4742063492066,19.1812540075111" />
+                  <mssgle:LineSegment
+                    End="-92.4742063492066,30.081349206349" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-60.4697008308533,20.1812540075111,28.4651953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Gun ratio.Paths[Sort Output1]"
+          TopLeft="611.460317460318,513.468253968254">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-129.285714285714,45.6587301587307"
+              Start="0,0"
+              End="-129.285714285714,38.1587301587307">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.1511825220069" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.1511825220069"
+                    Point2="0,27.1511825220069"
+                    Point3="-4,27.1511825220069" />
+                  <mssgle:LineSegment
+                    End="-125.285714285714,27.1511825220069" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-125.285714285714,27.1511825220069"
+                    Point2="-129.285714285714,27.1511825220069"
+                    Point3="-129.285714285714,31.1511825220069" />
+                  <mssgle:LineSegment
+                    End="-129.285714285714,38.1587301587307" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Gun ratio.Paths[Sort Output]"
+          TopLeft="304.809523809524,508.309523809524">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="120.698412698413,50.8174603174605"
+              Start="0,0"
+              End="120.698412698413,43.3174603174605">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.2188461130556" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.2188461130556"
+                    Point2="0,30.2188461130556"
+                    Point3="4,30.2188461130556" />
+                  <mssgle:LineSegment
+                    End="116.698412698413,30.2188461130556" />
+                  <mssgle:CubicBezierSegment
+                    Point1="116.698412698413,30.2188461130556"
+                    Point2="120.698412698413,30.2188461130556"
+                    Point3="120.698412698413,34.2188461130556" />
+                  <mssgle:LineSegment
+                    End="120.698412698413,43.3174603174605" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Gun ratio\Lookup to gun_id">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[Group_ID_137].[gun]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Gun ratio\Upload custody (incident_id, gun_id, crime_gravity)">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
