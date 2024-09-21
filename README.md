@@ -2,7 +2,8 @@
 
 Repository Contains
 
-	- Project Report
+	
+ 
 	- Part_1_python_scripts:
   	  - create_tables.py
   	  - dates.py
@@ -13,4 +14,6 @@ Repository Contains
 	- Part_2_ETL 
  
 	- Part_3_OLAP_MDX
+ 
+	- Project Report
 
