@@ -18,7 +18,8 @@ Repository Contains
 	- Project Report
 
 
-Part 1: DataWarehouse building
+Part 1: DataWarehouse building:
+
 	- In this part the repository contians 4 different python notebooks which were used to preprocess and create separated tables to build an efficient datawarehouse tables (create_tables.py)
  	- dates.py works to parse XML file to CSV and create the table 'dates'
   	- fact_table.py is a final script which creates a central fact table for a star schema of the datawarehouse. This script requieres all tables already done and created.
