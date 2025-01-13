@@ -4,7 +4,7 @@ import pyodbc
 server = 'tcp:131.114.72.230' 
 database = 'Group_ID_137_DB' 
 username = 'Group_ID_137' 
-password = '8ZZ6RXQR'
+password = '********'
 connectionString = 'DRIVER={ODBC Driver 17 for SQL Server};SERVER='+server+';DATABASE='+database+';UID='+username+';PWD='+ password
 cnxn = pyodbc.connect(connectionString)
 cursor = cnxn.cursor()
